@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #EFEFEF;
+  font-family: pretendard, sans-serif;
+}
+
+.container {
+  width: 70vh;
+  height: 45vh;
+  min-height: 300px;
+  min-width: 400px;
+  background-color: #205375; 
+  margin-top: auto;
+  border-radius: 20px;
+  padding: 50px 50px;
+  margin: 25vh auto;
+}
+
+.title {
+  text-align: center;
+  color: #EFEFEF;
+}
+
+p {
+  font-weight: 100;
+  font-size: 12px;
+  margin: 20px 0 50px 0;
+}
+
+.dateContainer {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+label {
+  font-size: 18px;
+  color: #EFEFEF;
+  margin-right: 10px;
+}
+
+input[type="date"]{
+  color: #F66B0E;
+  font-size: 14px;
+  font-family: pretendard, sans-serif;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  padding: 2.5px 0;
+  cursor: pointer;
+}
+
+button {
+  display: block;
+  background-color: #112B3C;
+  color: #EFEFEF;
+  padding: 15px 25px;
+  font-size: 18px;
+  font-family: pretendard, sans-serif;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: auto;
+  transition: 0.1s;
+}
+
+button:hover {
+  background-color: #F66B0E;
+  color: #112B3C;
+}
+
+#output {
+  margin-top: 50px;
+  text-align: center;
+  color: #F66B0E;
+  font-size: 23px;
+  font-weight: 900;
+}

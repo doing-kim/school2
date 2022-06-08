@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- font script -->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'wwo2nir',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+
+  <!-- style sheet -->
+  <style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+      background-color: #EFEFEF;
+      font-family: pretendard, sans-serif;
+    }
+
+    .container {
+      width: 35%;
+      height: 30%;
+      min-height: 500px;
+      min-width: 400px;
+      background-color: #205375; 
+      margin-top: auto;
+      border-radius: 20px;
+      padding: 50px 50px;
+      margin: 225px auto;
+    }
+
+    .title {
+      text-align: center;
+      color: #EFEFEF;
+    }
+
+    p {
+      font-weight: 100;
+      font-size: 12px;
+      margin: 20px 0 50px 0;
+    }
+
+    .dateContainer {
+      display: flex;
+      justify-content: space-around;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    label {
+      font-size: 18px;
+      color: #EFEFEF;
+      margin-right: 10px;
+    }
+
+    input[type="date"]{
+      color: #F66B0E;
+      font-size: 14px;
+      font-family: pretendard, sans-serif;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+      padding: 2.5px 0;
+      cursor: pointer;
+    }
+
+    button {
+      display: block;
+      background-color: #112B3C;
+      color: #EFEFEF;
+      padding: 15px 25px;
+      font-size: 18px;
+      font-family: pretendard, sans-serif;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin: auto;
+      transition: 0.1s;
+    }
+
+    button:hover {
+      background-color: #F66B0E;
+      color: #112B3C;
+    }
+
+    #output {
+      margin-top: 50px;
+      text-align: center;
+      color: #F66B0E;
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+  </style>
+
+  <title>D-Day Calculator</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">
+      <h2>D-Day 계산기</h2>
+      <p>웹프로젝트 과제<br>B893218 임승이</p>
+    </div>
+    <div class="dateContainer">
+      <div class="date">
+        <label for="startDate">시작일</label>
+        <input type="date" id="SDate">
+      </div>
+      <div class="date">
+        <label for="endtDate">마감일</label>
+        <input type="date" id="EDate">
+      </div>
+   </div>
+   <button id="submit">계산하기</button>
+   <div id="output">
+   </div>
+  </div>
+
+    <!-- javascript -->
+    <script>
+      var submit = document.getElementById("submit");
+      var output = document.getElementById("output");
+
+      submit.addEventListener("click", () => {
+        var startDate = new Date(document.getElementById("SDate").value);
+        var endDate = new Date(document.getElementById("EDate").value);
+        
+        var timeGap = endDate.getTime() - startDate.getTime();
+        var dayGap = timeGap/(1000*3600*24);
+        var weekendCount = 0;
+        while(true) {
+          if (startDate.getTime()>endDate.getTime()){
+            break;
+          } else{
+            var day1 = startDate.getDay();
+            if(day1 == 0 || day1 == 6) {
+            weekendCount ++ ;
+            }
+          startDate.setDate(startDate.getDate()+1);
+          }
+        }
+
+        output.innerHTML=`주말 ${weekendCount}일 포함<br>D-day까지 ${dayGap}일`;
+
+      });
+    </script>
+
+</body>
+
+</html>
